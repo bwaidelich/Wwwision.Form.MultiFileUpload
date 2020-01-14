@@ -1,6 +1,7 @@
 {
     "description": "Example package providing a simple MultiFileUpload element for the Neos.Form framework",
     "type": "neos-package",
+    "license": "MIT",
     "name": "wwwision/multifileupload",
     "require": {
         "neos/form": "^4.2 || ^5.0"
