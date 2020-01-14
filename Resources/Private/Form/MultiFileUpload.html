@@ -1,0 +1,47 @@
+{namespace form=Neos\Form\ViewHelpers}
+{namespace me=Wwwision\MultiFileUpload\ViewHelpers}
+<f:layout name="Neos.Form:Field" />
+<f:section name="field">
+    <me:uploadedResources property="{element.identifier}" as="resources">
+        <div id="{element.uniqueIdentifier}-uploadfields"{f:if(condition:resources, then: ' style="display:none"')}>
+            <me:multiFileUpload property="{element.identifier}" id="{element.uniqueIdentifier}" class="{element.properties.elementClassAttribute}" />
+            <f:if condition="{resources}">
+                <div class="clearfix">
+                    <a class="btn small" href="#" onclick="return !disableUpload('{element.uniqueIdentifier}')"><f:translate id="forms.labels.cancel" package="{element.renderingOptions.translationPackage}">Cancel</f:translate></a>
+                </div>
+            </f:if>
+        </div>
+        <f:if condition="{resources}">
+            <div id="{element.uniqueIdentifier}-preview">
+                <ul>
+                    <f:for each="{resources}" as="resource" iteration="iteration">
+                        <li>
+                            <a href="{f:uri.resource(resource: resource)}">
+                                {resource.filename}
+                            </a>
+                            <f:form.hidden name="{element.identifier}[{iteration.index}][originallySubmittedResource]" id="{element.uniqueIdentifier}-resourcePointer-{iteration.index}" value="{resource}" />
+                        </li>
+                    </f:for>
+                </ul>
+                <div class="clearfix">
+                    <a class="btn small" href="#" onclick="return !enableUpload('{element.uniqueIdentifier}')">Replace Files</a>
+                </div>
+            </div>
+        </f:if>
+        <script type="text/javascript">
+            //<![CDATA[
+            function enableUpload(prefix) {
+                document.getElementById(prefix + '-preview').style.display = 'none';
+                document.getElementById(prefix + '-uploadfields').style.display = 'block';
+                document.querySelectorAll('#' + prefix + '-preview input').forEach((el) => { el.disabled = true });
+                return true;
+            }
+            function disableUpload(prefix) {
+                document.getElementById(prefix + '-preview').style.display = 'block';
+                document.getElementById(prefix + '-uploadfields').style.display = 'none';
+                document.querySelectorAll('#' + prefix + '-preview input').forEach((el) => { el.disabled = false });
+                return true;
+            }
+            //]]></script>
+    </me:uploadedResources>
+</f:section>
