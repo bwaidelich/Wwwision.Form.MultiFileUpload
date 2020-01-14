@@ -1,4 +1,4 @@
-# Wwwision.MultiFileUpload
+# Wwwision.Form.MultiFileUpload
 
 Example package providing a simple MultiFileUpload element for the [Neos.Form](https://github.com/neos/form) framework.
 
@@ -21,10 +21,10 @@ Neos:
     presets:
       'default':
         formElementTypes:
-          'Wwwision.MultiFileUpload:MultiFileUpload':
+          'Wwwision.Form.MultiFileUpload:MultiFileUpload':
             superTypes:
               'Neos.Form:FormElement': true
-            implementationClassName: Wwwision\MultiFileUpload\FormElements\MultiFileUpload
+            implementationClassName: Wwwision\Form\MultiFileUpload\FormElements\MultiFileUpload
             properties:
               allowedExtensions:
                 - pdf
@@ -43,7 +43,7 @@ Neos:
 
         // ...
 
-        $files = $page1->createElement('files', 'Wwwision.MultiFileUpload:MultiFileUpload');
+        $files = $page1->createElement('files', 'Wwwision.Form.MultiFileUpload:MultiFileUpload');
         $files->setLabel('Some Files');
 
         return $form;
@@ -62,7 +62,7 @@ renderables:
   - type: 'Neos.Form:Page'
     identifier: page1
     renderables:
-      - type: 'Wwwision.MultiFileUpload:MultiFileUpload'
+      - type: 'Wwwision.Form.MultiFileUpload:MultiFileUpload'
         identifier: files
         label: 'Some Files'
 ```

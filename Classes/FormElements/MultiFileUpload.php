@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Wwwision\MultiFileUpload\FormElements;
+namespace Wwwision\Form\MultiFileUpload\FormElements;
 
 use Neos\Flow\Property\PropertyMappingConfiguration;
 use Neos\Flow\ResourceManagement\PersistentResource;
@@ -9,7 +9,7 @@ use Neos\Form\Core\Model\AbstractFormElement;
 use Neos\Form\Core\Runtime\FormRuntime;
 use Neos\Form\Exception\FormDefinitionConsistencyException;
 use Neos\Form\Validation\FileTypeValidator;
-use Wwwision\MultiFileUpload\Validation\MultipleValidator;
+use Wwwision\Form\MultiFileUpload\Validation\MultipleValidator;
 
 /**
  * A Neos.Form Element that represents a multiple file upload

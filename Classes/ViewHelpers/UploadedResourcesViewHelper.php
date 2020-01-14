@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Wwwision\MultiFileUpload\ViewHelpers;
+namespace Wwwision\Form\MultiFileUpload\ViewHelpers;
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Property\PropertyMapper;

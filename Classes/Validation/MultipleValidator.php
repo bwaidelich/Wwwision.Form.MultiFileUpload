@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Wwwision\MultiFileUpload\Validation;
+namespace Wwwision\Form\MultiFileUpload\Validation;
 
 use Neos\Error\Messages\Result;
 use Neos\Flow\Validation\Error as ValidationError;
