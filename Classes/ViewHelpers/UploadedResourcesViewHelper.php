@@ -23,6 +23,12 @@ final class UploadedResourcesViewHelper extends AbstractFormFieldViewHelper
      * @var PropertyMapper
      */
     protected $propertyMapper;
+    
+    public function initializeArguments(): void
+    {
+        parent::initializeArguments();
+        $this->registerTagAttribute('as','string','');
+    }
 
     public function render(string $as = 'resources'): string
     {
